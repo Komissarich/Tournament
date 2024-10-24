@@ -33,7 +33,7 @@ fun main() {
             }
 
         }
-        println(attacker)
+
         var defender: Fighter? = null
         when {
             info[1] == "1" -> {
@@ -46,10 +46,14 @@ fun main() {
                 defender = knight
             }
         }
-        println(defender)
-        defender?.getDamage(attacker?.attack() ?: 0)
-        attacker?.getDamage(defender?.attack() ?: 0)
+        if (defender == attacker) {
+            println("Нельзя выбрать самого себя")
+        }
+        else {
+            defender?.getDamage(attacker?.attack() ?: 0)
+            attacker?.getDamage(defender?.attack() ?: 0)
 
+        }
         println(wizard)
         println(robot)
         println(knight)
